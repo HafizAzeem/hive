@@ -1,0 +1,356 @@
+@php 
+  $settings = getSettings();
+@endphp
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta charset="utf-8">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <title>{{$settings['site_page_title']}}: {{lang_trans('txt_invoice')}}</title>
+        <link href="{{URL::asset('public/assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('public/css/invoice_style.css')}}" rel="stylesheet">
+        <style>
+            .dsfht{
+                position: absolute;
+                right: 10%;
+                top: 10%;
+                z-index: 1;
+            }
+            .paysta1{
+                background: black;
+                color: white;
+                padding: 6px;
+                font-size: 15px;
+            } 
+            .paid1cls{
+                background: green;
+                padding: 6px;
+                color: white;
+                font-size: 15px;
+            } 
+            .paysta2{
+                background: black;
+                color: white;
+                padding: 6px;
+                font-size: 14px;
+            } 
+            .notpaid2cls{
+                background: green;
+                padding: 6px;
+                color: white;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        @php             
+            
+            $i = 0;
+            $totalOrdersAmount = 0;
+            $itemsQty = [];
+            $orderedItemsArr = [];
+            
+            //print_r($data_row);
+            
+        @endphp
+        
+        
+        <button onClick="printpage()" id="printpagebutton" class="dsfht">Print this page</button>
+        <!--<input id="printpagebutton" type="button" value="Print this page"  önclick="printpage()"/>-->
+        <script type="text/javascript">
+            function printpage() {
+                //Get the print button and put it into a variable
+                 var printButton = document.getElementById("printpagebutton");
+                 printButton.style.visibility = 'hidden';
+                //Print the page content
+                window.print();
+                //Set the print button to 'visible' again 
+                //[Delete this line if you want it to stay hidden after printing]
+                printButton.style.visibility = 'visible';
+            }
+        </script>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 class-inv-11">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <strong>
+                            {{lang_trans('txt_gstin')}}: {{$settings['gst_num']}}
+                        </strong>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                        <strong>
+                            {{lang_trans('txt_ph')}} {{$settings['hotel_phone']}}
+                        </strong>
+                        <br/>
+                        <strong>
+                            ({{lang_trans('txt_mob')}}) {{$settings['hotel_mobile']}}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <span class="class-inv-12">
+                        {{$settings['hotel_name']}}
+                    </span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="class-inv-13">
+                        {{$settings['hotel_tagline']}}
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="class-inv-14">
+                        {{$settings['hotel_address']}}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="class-inv-15">
+                        <span>
+                            {{$settings['hotel_website']}}
+                        </span>
+                        |
+                        <span>
+                            {{lang_trans('txt_email')}}:-
+                        </span>
+                        <span>
+                            {{$settings['hotel_email']}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="class-inv-15" style="text-align: right;">
+                        @if($data_row->payment_done == 1)
+                        <span class="paysta1">Status:</span>
+                        <span class="paid1cls">Paid</span>
+                        @else
+                        <span class="paysta2">Status:</span>
+                        <span class="notpaid2cls">Not Paid</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            
+           
+            
+            <div class="row" style="margin-top:20px;border-top:1px solid black;">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                    <h3 style="text-align: center;line-height: 15px;margin-bottom: 15px;">Original</h3>
+                </div>
+            </div>
+            <div class="row" style="border-top:1px solid black;border-bottom:1px solid black;">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+                    <h3 style="text-align: center;line-height: 15px;margin-bottom: 15px;">DUE</h3>
+                </div>
+            </div>
+
+            <div class="row" style="">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="">
+                    <h3>Room - {{$data_row->roomnumber}}</h3>
+                    <h3>ORD  #{{$data_row->order_id}}</h3>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="">
+                    <h3 style="text-align: right;">{{dateConvert($data_row->created_at,'d-m-Y')}}</h3>
+                </div>
+            </div>
+        
+            <div class="row" style="display:flex; justify-content: space-between;margin-bottom:-20px;">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td colspan="5" style="border-top:1px solid black;border-bottom:1px solid black;">
+                                <div class="" style="justify-content: space-between;">
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style=""> Item Details </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: center;"> Rate </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: center;"> Qty </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: right;"> Amount </h4>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>    
+                        
+                        <?php
+                       
+                            $first = $data_row->name;
+                            $pehla1 = explode(",",$first);
+                            $pehla = str_replace(',', '', $pehla1);
+                            // print_r($pehla);die;
+                            // $j1 = str_replace(',', '', $first);
+                            
+                            $second = $data_row->quantity;
+                            $dusra1 = explode(" ",$second);
+                            $dusra = str_replace(',', '', $dusra1);
+                            
+                            $third = $data_row->unitprice;
+                            $tisra1 = explode(" ",$third);
+                            $tisra = str_replace(',', '', $tisra1);
+                            
+                            $result = array_map(null, $pehla, $dusra, $tisra);
+                        ?>
+                        <?php 
+                            // $pName = "";
+                            $pName = "";
+                            $quantity = "";
+                            $unitprice = "";
+                            $total = "";
+                            $totalOrdersAmount = 0;
+                            if(!empty($result)){
+                            ?>
+                                <tr>
+                                    <td colspan="5" style="border: none;">
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <h4 style="">
+                                <?php
+                                
+                                    for($i=0; $i<count($result); $i++){
+                                        $pName .= $result[$i][0]."<br><br>";
+                                    }
+                                    echo $pName;
+                                ?>
+                                            </h4>
+                                        </div>
+                            <?php
+                                $itemcountall = count($result);
+                                for($i=0; $i<count($result); $i++){
+                                    $quantity = $result[$i][1];
+                                    $unitprice = $result[$i][2];
+                                    $total = ($result[$i][1] * $result[$i][2]);
+                                    $totalOrdersAmount += ($result[$i][1] * $result[$i][2]);
+                                    // $pName .= $result[$i][0]."(".$result[$i][1]."q * ".$result[$i][2]."p = ".$total.")<br>";
+                                    
+                                
+                        ?>
+                        
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <h4 style="text-align: center;"> {{$unitprice}} </h4>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <h4 style="text-align: center;"> {{$quantity}} </h4>
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                    <h4 style="text-align: right;"> {{getCurrencySymbol()}} {{$total}} </h4>
+                                </div>
+                            
+                        <?php
+                                }
+                                ?> 
+                                </td>
+                        </tr> 
+                                <?php
+                                //echo $totalOrdersAmount;
+                            }else{
+                        ?>
+                        <tr>
+                            <td colspan="5">
+                                {{lang_trans('txt_no_orders')}}
+                            </td>
+                        </tr>
+                        <?php
+                                }
+                        ?>
+                        
+                        
+                        @php
+                            $gstPerc = $cgstPerc = $discount = 0;
+                            //if($data_row->gst_apply==1){
+                                $gstPerc = $settings['food_gst'];
+                                $cgstPerc = $settings['food_cgst'];
+                            //}
+                            //$discount = ($data_row->discount>0) ? $data_row->discount : 0;
+                            
+                            //$foodAmountGst = numberFormat( $totalOrdersAmount - ($totalOrdersAmount*100/(100+$gstPerc)) );
+                            $foodAmountGst = numberFormat($totalOrdersAmount*$gstPerc/100);
+                            $foodAmountCGst = numberFormat($totalOrdersAmount*$cgstPerc/100);
+                        @endphp
+                        
+                        <tr>
+                            <td colspan="5" style="border-top: 1px solid black;">
+                                <div class="" style="justify-content: space-between;">
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style=""> Subtotal ({{$itemcountall}} items) </h4>
+                                        <h4 style=""> CGST (2.5%)</h4>
+                                        <h4 style=""> SGST (2.5%)</h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: center;">  </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: center;"> {{$itemcountall}} </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                       <h4 style="text-align: right;"class="sa"> {{getCurrencySymbol()}} {{ numberFormat($totalOrdersAmount/(1+(5/100))) }} </h4>
+                                        <h4 style="text-align: right;">{{getCurrencySymbol()}} {{ numberFormat(($totalOrdersAmount/(1+(5/100)))*(2.5/100)) }}</h4>
+                                        <h4 style="text-align: right;">{{getCurrencySymbol()}} {{ numberFormat(($totalOrdersAmount/(1+(5/100)))*(2.5/100)) }}</h4>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        @if($foodAmountGst>0)
+                        
+                        @endif
+                        
+                        @if($discount>0)
+                            <tr>
+                                <td colspan="5" style="border: none;">
+                                    <div class="" style="justify-content: space-between;">
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <h4 style=""> {{lang_trans('txt_discount')}} </h4>
+                                        </div>
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <h4 style="text-align: center;">  </h4>
+                                        </div>
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <h4 style="text-align: center;"> </h4>
+                                        </div>
+                                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <h4 style="text-align: right;"> {{getCurrencySymbol()}} {{ numberFormat($discount) }} </h4>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endif
+                        
+                        @php 
+                            $finalFoodAmount = numberFormat($totalOrdersAmount+$foodAmountGst+$foodAmountCGst-$discount);
+                        @endphp
+                        
+                        <tr>
+                            <td colspan="5" style="border-top: 2px solid black;">
+                                <div class="" style="justify-content: space-between;">
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style=""> Payble Amount </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: center;">  </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: center;"> </h4>
+                                    </div>
+                                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                        <h4 style="text-align: right;"> {{getCurrencySymbol()}} {{ $totalOrdersAmount }} </h4>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div> 
+            
+        </div>
+    </body>
+</html>

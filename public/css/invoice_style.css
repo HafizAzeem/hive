@@ -1,0 +1,106 @@
+ @media print {
+    .no-print {
+        display :  none;
+    }
+}
+ .invoice-title h2, .invoice-title h3 {
+     display: inline-block;
+ }
+ .table>tbody>tr>.no-line {
+     border-top: none;
+ }
+ .table>thead>tr>.no-line {
+     border-bottom: none;
+ }
+ .table>tbody>tr>.thick-line {
+     border-top: 2px solid;
+ }
+ .container {
+     border: 3px solid #929292;
+ }
+ .fsize-label {
+     font-size: 15px;
+ }
+ .txt-right{
+    text-align: right;
+ }
+ .txt-center{
+    text-align: center;
+ }
+ .class-inv-1 {
+     padding-bottom: 5px;
+     padding-top: 5px;
+     background: #f8f8f8;
+ }
+ .class-inv-2 {
+     text-transform: uppercase;
+     font-weight: 600;
+     font-size: 25px;
+ }
+ .class-inv-3 {
+     border: 2px solid #000;
+     font-size: 18px;
+     font-weight: 600;
+     box-shadow: 1px 1px 0px 1px;
+     border-radius: 6px;
+ }
+ .class-inv-4 {
+     font-size: 22px;
+     font-weight: 500;
+     margin-top: 12px;
+ }
+ .class-inv-5 {
+     font-size: 13px;
+     font-weight: 600;
+ }
+ .class-inv-6 {
+     padding: 10px 0px 10px 0px !important;
+ }
+ .class-inv-7 {
+     font-size: 26px;
+     color: #ff5b5b;
+ }
+ .class-inv-8 {
+     border-bottom: 1px dotted #000;
+     font-size: 16px;
+ }
+ .class-inv-9 {
+     font-size: 16px;
+     text-transform: capitalize;
+ }
+ .class-inv-10 {
+     padding-top: 50px !important;
+ }
+ .class-inv-11 {
+     padding-bottom: 5px;padding-top: 5px;background: #f8f8f8;
+ }
+ .class-inv-12 {
+     text-transform: uppercase;font-weight: 600;font-size: 25px;
+ }
+ .class-inv-13 {
+     border: 2px solid #000;font-size: 18px;font-weight: 600;box-shadow: 1px 1px 0px 1px;border-radius: 6px;
+ }
+ .class-inv-14 {
+     font-size: 22px;font-weight: 500;margin-top: 12px;
+ }
+ .class-inv-15 {
+     font-size: 13px;font-weight: 600;
+ }
+ .class-inv-16 {
+     border-bottom: 1px dotted #000;font-size: 16px;
+ }
+ .class-inv-17 {
+     font-size: 16px;text-transform: capitalize;
+ }
+ .class-inv-18 {
+     border-top: none !important;
+ }
+ .class-inv-19 {
+    font-size: 26px;color: #ff5b5b;
+ }
+ .class-inv-20{
+    padding-top: 50px !important;
+ }
+ .class-inv-21{
+    font-size: 80% !important;
+ }

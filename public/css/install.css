@@ -1,0 +1,18 @@
+.container{
+    margin-top: 50px;
+}
+.site-name h1{
+    font-size: 28px;
+}
+.nav>li>a {
+    padding: 10px 15px 10px;
+}
+.alert {
+    padding: 12px;
+}
+.error {
+    color: #e03535;
+}
+.required {
+    color: #e03535;
+}

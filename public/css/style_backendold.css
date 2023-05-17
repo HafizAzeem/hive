@@ -1,0 +1,102 @@
+.hide_elem {
+    display: none;
+}
+.login {
+    background: url('../images/login_bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    -webkit-font-smoothing: antialiased;
+}
+.login_content {
+    background: rgba(40, 57, 101, 0.65);
+    padding: 12px;
+}
+.error {
+    color: #e03535;
+}
+.required {
+    color: #e03535;
+}
+.select2-container {
+    height: 34px;
+}
+.select2-selection {
+    min-height: 34px !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+.tr-bg {
+    background: #EDEDED;
+    font-size: 15px;
+}
+.btn-cust {
+    color: #333;
+    background-color: #dbdbdb;
+    border-color: #ccc;
+}
+.h34 {
+    height: 34px !important;
+}
+.input-number {
+    min-width: 100px !important;
+}
+.search-btn, .export-btn {
+    margin-top: 8px;
+}
+.p-left-0 {
+    padding-left: 0px !important;
+}
+.p-right-0 {
+    padding-right: 0px !important;
+}
+.p-top-1 {
+    padding-top: 1px !important;
+}
+.bg-eee {
+    background: #eee !important;
+}
+.color-cbc {
+    color: #cbcbcb !important;
+}
+.color-9e9 {
+    color: #9e9c9c;
+}
+.color-ff4 {
+    color: #ff4848;
+}
+.bgcolor-eee{
+    background: #eee;
+}
+.f-15{
+    font-size: 15px;
+}
+.page-class-1 {
+    height: 33px !important;
+}
+.page-class-2 {
+    height: 33px !important;
+}
+.page-class-3 {
+    padding-right: 0px;
+    padding-left: 0px !important;
+}
+.page-class-4 {
+    font-size: 15px;
+}
+.page-class-5 {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.disable-checkbox{
+    pointer-events: none;
+    opacity: 0.5;
+}
+.x_title h2{
+    overflow: initial;
+}
+
+.x_panel_dailyreport
+{
+    width: 170% !important; 
+}
