@@ -6,7 +6,7 @@ use App\Order;
 use App\Room;
 use App\OrderHistory;
 use App\Unit,App\RoomType,App\Customer;
-use DB;
+use Illuminate\Support\Facades\DB;
 function lang_trans($key){
     $defaultLang = 'en';
     if(isset(Session::get('settings')['site_language'])){
@@ -73,8 +73,8 @@ function getCountryList(){
     return $countries;
 }
 function getMenuPermission(){
-    
-  
+
+
     $permissions = Permission::where('permission_type','menu')->get();
     $roles = [1=>'super_admin', 2=>'admin', 3=>'receptionist', 5=>'kitchen'];
     $permissionArr = [];
@@ -86,8 +86,8 @@ function getMenuPermission(){
     return $permissionArr;
 }
 function getRoutePermission(){
-    
-   
+
+
     $permissions = Permission::where('permission_type','route')->get();
     $roles = [1=>'super_admin', 2=>'admin', 3=>'receptionist', 5=>'kitchen'];
     $permissionArr = [];
@@ -214,9 +214,9 @@ function getInvoiceNumber($id)
    foreach ($words as $w) {
    $acronym .= $w[0];
     }
-    
+
     return $acronym.$mid;
-    
+
 }
 
 function getStatusBtn($status){

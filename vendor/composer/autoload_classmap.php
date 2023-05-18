@@ -4805,6 +4805,8 @@ return array(
     'SebastianBergmann\\Type\\UnknownType' => $vendorDir . '/sebastian/type/src/type/UnknownType.php',
     'SebastianBergmann\\Type\\VoidType' => $vendorDir . '/sebastian/type/src/type/VoidType.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
+    'SqlFileSeedehhr' => $baseDir . '/database/seeds/SqlFileSeedehhr.php',
+    'SqlFileSeeder' => $baseDir . '/database/seeds/SqlFileSeeder.php',
     'Stringable' => $vendorDir . '/myclabs/php-enum/stubs/Stringable.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\Attribute\\AsCommand' => $vendorDir . '/symfony/console/Attribute/AsCommand.php',
