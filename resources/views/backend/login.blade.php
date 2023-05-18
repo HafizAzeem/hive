@@ -6,11 +6,11 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>{{getSettings('site_page_title')}}</title>
-      <link rel="icon" href="{{url('public/images/hotel.png')}}" sizes="16x16" type="image/png">
-      <link href="{{URL::asset('public/assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-      <link href="{{URL::asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-      <link href="{{URL::asset('public/assets/custom.min.css')}}" rel="stylesheet">
-      <link href="{{URL::asset('public/css/style_backend.css')}}" rel="stylesheet">
+      <link rel="icon" href="{{url('images/hotel.png')}}" sizes="16x16" type="image/png">
+      <link href="{{URL::asset('assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('assets/custom.min.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('css/style_backend.css')}}" rel="stylesheet">
     </head>
     <body class="login">
         <div>
@@ -55,6 +55,6 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
 </html>

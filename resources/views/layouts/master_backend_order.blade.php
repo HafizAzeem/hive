@@ -7,23 +7,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title>{{getSettings('site_page_title')}}</title>
-        <link rel="icon" href="{{url('public/images/hotel.png')}}" sizes="16x16" type="image/png">
-        <link href="{{URL::asset('public/assets/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/sweetalert2-7.0.0/sweetalert2.min.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/select2/dist/css/select2.min.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/nprogress/nprogress.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/iCheck/skins/flat/green.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/bootstrap-datetimepicker/css/datetimepicker.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/bootstrap-datepicker/css/datepicker.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/summernote-0.8.8/dist/summernote-bs4.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/assets/custom.min.css')}}" rel="stylesheet">
-        <link href="{{URL::asset('public/css/style_backend.css')}}" rel="stylesheet">
+        <link rel="icon" href="{{url('images/hotel.png')}}" sizes="16x16" type="image/png">
+        <link href="{{URL::asset('assets/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/sweetalert2-7.0.0/sweetalert2.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/select2/dist/css/select2.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/nprogress/nprogress.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/bootstrap-datetimepicker/css/datetimepicker.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/bootstrap-datepicker/css/datepicker.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/summernote-0.8.8/dist/summernote-bs4.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('assets/custom.min.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/style_backend.css')}}" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.14/css/bootstrap-multiselect.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet"/>
-    
+
         <style>
             /*.nav-md .container.body .right_col{*/
                 /*min-height: auto !important;*/
@@ -43,7 +43,7 @@
                 /*border: 1px solid;*/
                 background: whitesmoke;
             }
-            
+
         @media only screen and (max-width: 600px) {
             .mycartposition{
                 position: fixed;
@@ -79,14 +79,14 @@
                 font-size: 16px !important;
             }
         }
-            
+
         </style>
 
         @yield('css')
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>   -->
         <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />-->
         {{-- this inline script is required: set global access var --}}
-        <script type="text/javascript" src="{{URL::asset('public/assets/jquery/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('assets/jquery/jquery.min.js')}}"></script>
         <script>
             var base_url="{{url('/').'/'}}";
             var csrf_token="{{ csrf_token() }}";
@@ -96,23 +96,23 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script type="text/javascript" src="{{URL::asset('public/js/init.js')}}"></script>
-        <script type="text/javascript" src="{{URL::asset('public/js/jquery.validate.min.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/init.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/jquery.validate.min.js')}}"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href=" https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="{{URL::asset('public/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
-        <!-- <script type="text/javascript" src="{{URL::asset('public/assets/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script> -->
-        <script type="text/javascript" src="{{URL::asset('public/assets/jqueryvalidation/jqueryvalidation.js')}}"></script>
-        <script type="text/javascript" src="{{URL::asset('public/assets/moment/min/moment.min.js')}}"></script>
-        <script type="text/javascript" src="{{URL::asset('public/assets/select2/dist/js/select2.full.min.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{URL::asset('assets/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script> -->
+        <script type="text/javascript" src="{{URL::asset('assets/jqueryvalidation/jqueryvalidation.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('assets/moment/min/moment.min.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('assets/select2/dist/js/select2.full.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-        <link href="{{URL::asset('public/assets/ekko-lightbox/ekko-lightbox.css')}}" rel="stylesheet">
-        <script src="{{URL::asset('public/assets/ekko-lightbox/ekko-lightbox.js')}}"></script>
+        <link href="{{URL::asset('assets/ekko-lightbox/ekko-lightbox.css')}}" rel="stylesheet">
+        <script src="{{URL::asset('assets/ekko-lightbox/ekko-lightbox.js')}}"></script>
     </head>
-    
+
     <body class="nav-md">
-        
+
         <div class="container body">
             <div class="main_container">
                 <!--<div class="row">-->
@@ -146,7 +146,7 @@
                                                     @foreach(session('cart') as $id => $details)
                                                         <div class="row cart-detail">
                                                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 cart-detail-img">
-                                                                <img src="/storage/app/public/productjack/{{ $details['image'] }}" width="50" class="img-fluid" />
+                                                                <img src="/storage/app/productjack/{{ $details['image'] }}" width="50" class="img-fluid" />
                                                             </div>
                                                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 cart-detail-product">
                                                                 <p>{{ $details['name'] }}</p>
@@ -163,7 +163,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <!--<div class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-right" style="width:200px;right:0;" id="mySidebar">-->
                                     <!--    <button class="w3-bar-item w3-button w3-large w3-hide-large" id="w3_close" onclick="w3_close()">Close &times;</button>-->
                                     <!--    <a class="w3-bar-item w3-button vegsideselect vegornot" data-val="veg" id="vegselect">VEG</a>-->
@@ -174,10 +174,10 @@
                                     <!--        <button class="w3-button w3-xlarge w3-right w3-hide-large" id="w3_open" onclick="w3_open()">&#9776;</button>-->
                                     <!--    </div>-->
                                     <!--</div>-->
-                                    
+
                                 </div>
                             </div>
-    
+
                             @include('layouts.flash_msg')
                             @yield('content')
                         </div>
@@ -196,22 +196,22 @@
                         <!--</footer>-->
                     <!--</div>-->
                 <!--</div>-->
-                
+
             </div>
         </div>
-        
-        
 
-        <script src="{{URL::asset('public/assets/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-        <script src="{{URL::asset('public/assets/fastclick/lib/fastclick.js')}}"></script>
-        <script src="{{URL::asset('public/assets/nprogress/nprogress.js')}}"></script>
-        <script src="{{URL::asset('public/assets/DateJS/build/date.js')}}"></script>
-        <script src="{{URL::asset('public/assets/iCheck/icheck.min.js')}}"></script>
 
-        <script src="{{URL::asset('public/assets/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-        <script src="{{URL::asset('public/assets/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-        <script src="{{URL::asset('public/assets/sweetalert2-7.0.0/sweetalert2.all.min.js')}}"></script>
-        <script src="{{URL::asset('public/assets/summernote-0.8.8/dist/summernote-bs4.min.js')}}"></script>
+
+        <script src="{{URL::asset('assets/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('assets/fastclick/lib/fastclick.js')}}"></script>
+        <script src="{{URL::asset('assets/nprogress/nprogress.js')}}"></script>
+        <script src="{{URL::asset('assets/DateJS/build/date.js')}}"></script>
+        <script src="{{URL::asset('assets/iCheck/icheck.min.js')}}"></script>
+
+        <script src="{{URL::asset('assets/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{URL::asset('assets/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+        <script src="{{URL::asset('assets/sweetalert2-7.0.0/sweetalert2.all.min.js')}}"></script>
+        <script src="{{URL::asset('assets/summernote-0.8.8/dist/summernote-bs4.min.js')}}"></script>
         @yield('jquery')
         <script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
@@ -220,9 +220,9 @@
         <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
 
         <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
-        <script src="{{URL::asset('public/assets/js/custom.min.js')}}"></script>
-        <script src="{{URL::asset('public/js/custom.js')}}"></script>
-        <script src="{{URL::asset('public/js/ajax_call.js')}}"></script>
+        <script src="{{URL::asset('assets/js/custom.min.js')}}"></script>
+        <script src="{{URL::asset('js/custom.js')}}"></script>
+        <script src="{{URL::asset('js/ajax_call.js')}}"></script>
 
         <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -238,7 +238,7 @@
             $(document).ready(function(){
                 $(".alert-success").delay(5000).slideUp(300);
             });
-            
+
             function w3_open() {
                 document.getElementById("mySidebar").style.display = "block";
             }
@@ -246,9 +246,9 @@
                 document.getElementById("mySidebar").style.display = "none";
             }
         </script>
-        
+
         <script>
-            
+
         </script>
         @include('popper::assets')
     </body>
